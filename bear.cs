@@ -54,8 +54,7 @@ public class bear : MonoBehaviour
         cam3 = GameObject.Find("cam3");
         cam4 = GameObject.Find("cam4");
 
-        // GameObject root = GameObject.Find("SampleScene");
-        //root.AddComponent<GameObject>(cam1);
+       
 
         Show(cam1);
         Hide(cam3);
@@ -65,7 +64,6 @@ public class bear : MonoBehaviour
         player1 = cam1.AddComponent<VideoPlayer>();
         player1.audioOutputMode = VideoAudioOutputMode.None;
         player1.playOnAwake = false;
-        //player1.url = "file://C:/Programming/C#/Bear/Data/one.mp4";
         VideoClip clip1 = Resources.Load<VideoClip>("one") as VideoClip;
         player1.clip = clip1;
         player1.isLooping = true;
@@ -101,7 +99,7 @@ public class bear : MonoBehaviour
     {
         GameObject button = new GameObject(name, typeof(Button), typeof(Image), typeof(Animation), typeof(LayoutElement), typeof(Animator));
 
-        //var vp = camera.AddComponent<UnityEngine.Video.VideoPlayer>();
+        
         button.transform.SetParent(canvas.transform);
         button.GetComponent<RectTransform>().sizeDelta = new Vector2((width * Screen.width) / 100, (height * Screen.height) / 100);
       
@@ -113,35 +111,8 @@ public class bear : MonoBehaviour
         AnimatorController cntrl = Resources.Load<AnimatorController>("buttonEat");
         button.GetComponent<Animator>().runtimeAnimatorController = cntrl;
 
-
-       
-
-        //Image img = button.GetComponent<Image>();
-        //img = Resources.Load<Image>("MuoseUp");
-        //var comps = button.gameObject.GetComponentInChildren<Text>();
-        //comps.text = "ASDF";
-        //clip = Resources.Load<an>("animation");
-        //animator = button.GetComponent<Animator>();
-        //anima.AddClip(clip, "animation");
-       //foreach (AnimationState state in anima)
-        //{
-       //     state.speed = 0.5F;
-       // }
-        
-
-        // GameObject txt = new GameObject("txt", typeof(Text));
-        //Text label = txt.GetComponent<Text>();
-        // label.transform.SetParent(button.transform);
-        // label.GetComponent<RectTransform>().sizeDelta = new Vector2((width * Screen.width) / 100, (height * Screen.height) / 100);
-        // label.text = name;
-        // label.font = Resources.Load<Font>("calibri");
-        //  label.color = new Color (0,0,0);
-
         if (act != null)
         {
-            // AnimatorController(x, y, width, height);
-            //   anima.Play();
-            
             button.GetComponent<Button>().onClick.AddListener(act);
         }
        
